@@ -1,0 +1,92 @@
+:root {
+    --blue: rgb(18, 15, 48);
+    --gray: rgb(65, 65, 65);
+}
+
+#home {
+    margin-bottom: 150px;
+}
+
+#home-display {
+    position: relative;
+    width: 100%;
+    height: 1000px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    border-radius: 5px;
+    padding: 50px;
+}
+
+#home-display-bg {
+    position: absolute;
+    z-index: -1;
+    filter: blur(20px);
+    opacity: 0.5;
+}
+
+#home-discover-tabs {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 50px;
+}
+
+.home-discover-tab {
+    width: 400px;
+    height: 200px;
+    background-color: rgba(255, 255, 255, 0.062);
+    border-radius: 10px;
+    position: relative;
+    overflow: hidden;
+    justify-content: center;
+    align-items: center;
+    padding: 50px;
+}
+
+.home-discover-tab-img {
+    position: absolute;
+    opacity: 0.2;
+    filter: blur(10px);
+    z-index: -1;
+}
+
+.home-discover-tab-title {
+    width: 100%;
+    text-align: center;
+    font-size: 40px;
+    display: flex;
+    
+}
+
+.home-discover-tab-btn {
+    background-color: var(--blue);
+    color: white;
+    border: none;
+    border-radius: 6px;
+    padding: 15px;
+    font-weight: 900;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+/* TABLET */
+@media (max-width: 1212px) {
+    #home-discover-tabs {
+        flex-direction: column;
+    }
+}
+/* MOBILE */
+@media (max-width: 360px) {
+    .home-discover-tab {
+        width: 300px;
+        display: flex;
+        justify-content: center;
+        gap: 10px;
+        align-items: center;
+    }
+    .home-discover-tab p {
+        display: none;
+    }
+}

@@ -1,0 +1,141 @@
+:root {
+    --blue: rgb(18, 15, 48);
+    --light-blue: rgb(7, 46, 172);
+    --gray: rgb(65, 65, 65);
+}
+
+#prices {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 50px;
+    margin-bottom: 150px;
+}
+
+#prices-display-bg {
+    position: absolute;
+    z-index: -1;
+    opacity: 0.5;
+    filter: blur(10px);
+}
+
+#prices-title {
+    width: 100%;
+    text-align: center;
+}
+
+.prices-info-subtitle {
+    width: 100%;
+    text-align: center;
+}
+
+#prices-tabs {
+    width: 100%;
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    align-items: center;
+    color: var(--blue);
+}
+
+.prices-tab {
+    width: 100%;
+    background-color: var(--blue);
+    color: whitesmoke;
+    box-shadow: 0 0 5px 2px rgba(255, 255, 255, 0.226);
+    border-radius: 10px;
+    height: 300px;
+    width: 400px;
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    text-align: center;
+}
+
+.prices-tab-btn {
+    position: absolute;
+    bottom: 10px;
+    background-color: var(--light-blue);
+    color: white;
+    border: none;
+    border-radius: 6px;
+    padding: 15px;
+    font-weight: 900;
+    cursor: pointer;
+}
+
+.prices-tab-price {
+    color: white;
+    opacity: 0.8;
+}
+
+#prices-discover-tabs {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.prices-discover-tab {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 90%;
+    height: 200px;
+    background-color: rgba(255, 255, 255, 0.062);
+    border-radius: 10px;
+    position: relative;
+    overflow: hidden;
+    justify-content: center;
+    align-items: center;
+    padding: 50px;
+}
+
+.prices-discover-tab-img {
+    position: absolute;
+    opacity: 0.2;
+    filter: blur(10px);
+    z-index: -1;
+}
+
+.prices-discover-tab-title {
+    width: 100%;
+    text-align: center;
+    font-size: 40px;
+    display: flex;
+
+}
+
+.prices-discover-tab-btn {
+    background-color: var(--blue);
+    color: white;
+    border: none;
+    border-radius: 6px;
+    padding: 15px;
+    font-weight: 900;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+@media (max-width: 768px) {
+    #prices-tabs {
+        flex-direction: column;
+    }
+}
+/* MOBILE */
+@media (max-width: 500px) {
+    .prices-tab {
+        width: 300px;
+    }
+
+    .prices-discover-tab {
+        width: 300px;
+        gap: 10px;
+    }
+    .prices-discover-tab p {
+        display: none;
+    }
+}

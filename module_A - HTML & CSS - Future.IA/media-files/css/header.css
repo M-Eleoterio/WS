@@ -1,0 +1,40 @@
+.header {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 70%;
+    padding: 10px;
+    height: 50px;
+    position: absolute;
+    z-index: 999;
+}
+
+.nav-ul {
+    display: flex;
+    gap: 20px;
+    list-style-type: none;
+}
+
+.nav-li-link {
+    color: white;
+    text-decoration: none;
+}
+
+/* TABLET */
+@media (max-width: 1212px) {
+    .header {
+        width: 100%;
+        gap: 50%;
+    }
+}
+/* MOBILE */
+@media (max-width: 650px) {
+    .header {
+        width: 100%;
+        gap: 20%;
+    }
+    .header h1 {
+        display: none;
+    }
+}
