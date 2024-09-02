@@ -12,7 +12,8 @@ class WorkspaceController extends Controller
      */
     public function index()
     {
-        //
+        $workspaces = Workspace::where('user_id', auth('sanctum')->id())->get();
+        return view('dashboard', compact('workspaces'));
     }
 
     /**
@@ -37,9 +38,13 @@ class WorkspaceController extends Controller
     public function show($id)
     {
         $workspace = Workspace::findOrFail($id);
+        //VERIFICA SE PERTENCE AO USUARIO
+        if (auth('sanctum')->id() != $workspace['user_id'])
+            return redirect()->back();
+
         $tokens = $workspace->tokens;
 
-        return view('workspace.workspace', [
+        return view('workspace.index', [
             "workspace" => $workspace,
             "tokens" => $tokens
         ]);

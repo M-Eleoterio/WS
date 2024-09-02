@@ -15,7 +15,7 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        /* User::factory(9)->create();
+        User::factory(9)->create();
 
         User::factory()->create([
             'name' => 'test',
@@ -23,9 +23,9 @@ class DatabaseSeeder extends Seeder
             'password' => '123',
             'auth' => false,
 
-        ]); */
+        ]);
 
         Workspace::factory(10)->create();
-        // Token::factory(30)->create();
+        Token::factory(30)->create();
     }
 }

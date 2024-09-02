@@ -16,6 +16,7 @@ use App\Http\Controllers\UserController;
 }); */
 
 
+Route::redirect('/', '/login');
 Route::get('/login', function () {
     return view('login');
 })->name('login');
@@ -23,13 +24,10 @@ Route::get('/login', function () {
 Route::post('/login', [UserController::class, 'login'])->name('user.login');
 
 Route::middleware('auth:sanctum')->group(function () {
-    Route::redirect('/', '/dashboard');
     /* VIEWS */
-    Route::get('/dashboard', function () {
-        return view('dashboard', ['workspaces' => Workspace::all()]);
-    })->name('view.dashboard');
+    Route::get('/dashboard', [WorkspaceController::class, 'index'])->name('view.dashboard');
     Route::get('/workspace/{id}', [WorkspaceController::class, 'show'])->name('view.workspace');
-    Route::get('/token/create', [TokenController::class, 'show'])->name('view.token');
+    Route::get('/token/create', [TokenController::class, 'show'])->name('view.token.create');
 
     /* ACTIONS */
     Route::get('/token/revoke/{id}', [TokenController::class, 'revoke'])->name('token.revoke');

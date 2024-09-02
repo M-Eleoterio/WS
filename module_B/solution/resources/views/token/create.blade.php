@@ -14,7 +14,7 @@
     <button type="submit">Create</button>
 </form>
 
-@if ($message)
-    <p style="color:red;">{{$message}}</p>
+@if(session('message'))
+    <p style="color:red;">{{session('message')}}</p>
 @endif
 @endsection

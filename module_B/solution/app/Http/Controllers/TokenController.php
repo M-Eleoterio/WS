@@ -13,20 +13,24 @@ class TokenController extends Controller
     {
         $timedate = getdate();
         $current_time = $timedate['year'] .
-            "/" . str_pad($timedate['mon'], 2, "0", STR_PAD_LEFT) .
-            "/" . str_pad($timedate['mday'], 2, "0", STR_PAD_LEFT) .
+            "-" . str_pad($timedate['mon'], 2, "0", STR_PAD_LEFT) .
+            "-" . str_pad($timedate['mday'], 2, "0", STR_PAD_LEFT) .
             " " . str_pad($timedate['hours'], 2, "0", STR_PAD_LEFT) .
             ":" . str_pad($timedate['minutes'], 2, "0", STR_PAD_LEFT) .
             ":" . str_pad($timedate['seconds'], 2, "0", STR_PAD_LEFT);
-        Token::where('id', $id)->update(['revoked' => true, 'revocation_date' => $current_time]);
+        $token = Token::where('id', $id);
+
+        //VERIFICA SE PERTENCE AO USUARIO
+        if (auth('sanctum')->id() != $token['user_id'])
+            return redirect()->back();
+        $token->update(['revoked' => true, 'revocation_date' => $current_time]);
         return redirect()->back();
     }
 
     public function show()
     {
-        $message = "";
         $workspaces = Workspace::where('user_id', auth('sanctum')->id())->get();
-        return view('token.create', compact('workspaces', 'message'));
+        return view('token.create', compact('workspaces'));
     }
     public function create(Request $request)
     {
@@ -43,7 +47,10 @@ class TokenController extends Controller
                 'revoked' => false
             ])
         ) {
-            return back()->with(['message' => "Take a note of this token, its not possible to get it later: ".$token]);
+            return redirect()->back()->with('message', "Take a note of this token, its not possible to get it later: " . $token);
         }
+
+        //CASO FALHE
+        return redirect()->back()->with('message', "It was not possible to create the token.");
     }
 }
