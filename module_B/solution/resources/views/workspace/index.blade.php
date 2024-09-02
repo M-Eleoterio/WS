@@ -2,6 +2,7 @@
 @section('title', 'Workspaces')
 @section('content')
     <h1>Workspaces</h1>
+    <a href={{ route('workspace.create') }}>Create new Workspace</a>
     @foreach ($workspaces as $workspace)
         <div class="workspace" style="border: 1px solid gray; margin-bottom: 20px">
             <h2>#{{$workspace['id']}} - {{$workspace['title']}}</h2>

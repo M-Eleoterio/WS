@@ -21,7 +21,7 @@ class WorkspaceController extends Controller
      */
     public function create()
     {
-        //
+        return view('workspace.create');
     }
 
     /**
@@ -29,7 +29,18 @@ class WorkspaceController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $userData = $request->validate([
+            "title" => "string|max:100",
+            "description" => "string",
+        ]);
+
+        $userData['user_id'] = auth('sanctum')->id();
+
+        if (Workspace::create($userData)) {
+            return redirect()->route('workspace.index');
+        }
+
+        return redirect()->back()->withErrors("message", "Cannot create workspace.");
     }
 
     /**
