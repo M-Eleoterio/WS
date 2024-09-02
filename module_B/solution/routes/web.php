@@ -25,9 +25,9 @@ Route::post('/login', [UserController::class, 'login'])->name('user.login');
 
 Route::middleware('auth:sanctum')->group(function () {
     /* VIEWS */
-    Route::get('/dashboard', [WorkspaceController::class, 'index'])->name('view.dashboard');
-    Route::get('/workspace/{id}', [WorkspaceController::class, 'show'])->name('view.workspace');
-    Route::get('/token/create', [TokenController::class, 'show'])->name('view.token.create');
+    Route::get('/workspaces', [WorkspaceController::class, 'index'])->name('workspace.index');
+    Route::get('/workspace/{id}', [WorkspaceController::class, 'show'])->name('workspace.show');
+    Route::get('/token/create', [TokenController::class, 'show'])->name('token.create');
 
     /* ACTIONS */
     Route::get('/token/revoke/{id}', [TokenController::class, 'revoke'])->name('token.revoke');

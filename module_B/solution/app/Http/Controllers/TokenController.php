@@ -18,11 +18,11 @@ class TokenController extends Controller
             " " . str_pad($timedate['hours'], 2, "0", STR_PAD_LEFT) .
             ":" . str_pad($timedate['minutes'], 2, "0", STR_PAD_LEFT) .
             ":" . str_pad($timedate['seconds'], 2, "0", STR_PAD_LEFT);
-        $token = Token::where('id', $id);
+        $token = Token::where('id', $id)->first();
 
         //VERIFICA SE PERTENCE AO USUARIO
         if (auth('sanctum')->id() != $token['user_id'])
-            return redirect()->back();
+            return redirect()->back(401);
         $token->update(['revoked' => true, 'revocation_date' => $current_time]);
         return redirect()->back();
     }

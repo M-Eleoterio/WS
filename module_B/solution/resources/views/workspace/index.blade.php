@@ -1,23 +1,13 @@
 @extends('templates.template')
-@section('title', $workspace['title'])
+@section('title', 'Workspaces')
 @section('content')
-<h1>Workspace - {{$workspace['title']}}</h1>
-@foreach ($tokens as $token)
-    <div class="token">
-        <h2>{{ $token['name'] }} |
-            @if ($token['revoked'])
-                Revoked
-            @else
-                Active
-            @endif
-        </h2>
-        <p>Created at {{ $token['created_at'] }}</p>
-        @if ($token['revoked'])
-            <p>Revoked at {{ $token['revocation_date'] }}</p>
-        @endif
-        @if (!$token['revoked'])
-            <a href={{ route('token.revoke', ['id' => $token['id']]) }}>Revoke it</a>
-        @endif
-    </div>
-@endforeach
+    <h1>Workspaces</h1>
+    @foreach ($workspaces as $workspace)
+        <div class="workspace" style="border: 1px solid gray; margin-bottom: 20px">
+            <h2>#{{$workspace['id']}} - {{$workspace['title']}}</h2>
+            <h4>{{$workspace['description']}}</h4>
+            <a href={{ route("workspace.show", ["id" => $workspace['id']]) }}>Go to</a>
+        </div>
+
+    @endforeach
 @endsection

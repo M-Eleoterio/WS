@@ -7,7 +7,7 @@
 </head>
 <body>
     <nav style="display: flex; flex-direction: column; gap: 20px;">
-        <a href={{ route('view.dashboard') }} >Home</a>
+        <a href={{ route('workspace.index') }} >Home</a>
     </nav>
     @yield('content')
 </body>
