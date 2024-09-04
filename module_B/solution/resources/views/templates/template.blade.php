@@ -15,7 +15,7 @@
         <div></div>
     </div>
 
-    <nav style="display: flex; flex-direction: column; gap: 20px;">
+    <nav style="display: flex; flex-direction: column; gap: 20px;" id="header">
         <a href={{ route('workspace.index') }}>Home</a>
     </nav>
     @yield('content')
