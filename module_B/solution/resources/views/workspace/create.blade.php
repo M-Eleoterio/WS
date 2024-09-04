@@ -1,9 +1,9 @@
 @extends('templates.template')
 @section('title', 'New workspace')
 @section('content')
-    <h1>New Workspace</h1>
 
-    <div id="new-ws">
+<div id="new-ws-container">
+        <h1>New Workspace</h1>
         <form action={{ route('workspace.store') }} id="new-ws-form" method="post">
             @csrf
             <input type="text" name="title" id="new-ws-input-title" placeholder="title" required>
