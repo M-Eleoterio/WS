@@ -51,7 +51,7 @@ class WorkspaceController extends Controller
         $workspace = Workspace::findOrFail($id);
         //VERIFICA SE PERTENCE AO USUARIO
         if (auth('sanctum')->id() != $workspace['user_id'])
-            return redirect()->back(401);
+            return redirect()->back();
 
         $tokens = $workspace->tokens;
 

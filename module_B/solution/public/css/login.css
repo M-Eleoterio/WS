@@ -1,0 +1,88 @@
+@import url('https://fonts.googleapis.com/css2?family=SUSE:wght@100..800&display=swap');
+
+#lg-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 90vh;
+    overflow: hidden;
+    gap: 20px;
+}
+
+#lg-title {
+    font-family: 'SUSE';
+}
+
+#lg-form {
+    height: 500px;
+    width: 300px;
+    font-size: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 15px;
+    background: rgba(0, 0, 0, 0.308);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(8.5px);
+    -webkit-backdrop-filter: blur(8.5px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    padding: 20px;
+}
+
+#lg-form input {
+    border-radius: 4px;
+    border: none;
+    padding: 10px;
+    width: 93%;
+    background-color: rgba(255, 255, 255, 0.336);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    color: white;
+    outline: none;
+}
+#lg-form input:focus {
+    transform: scale(1.1);
+}
+
+#lg-form label {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+#lg-form button {
+    width: 200px;
+    height: 30px;
+    background-color: rgba(0, 0, 255, 0.74);
+    color: white;
+    border-radius: 4px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    cursor: pointer;
+}
+#lg-form button:hover {
+    background-color: rgb(1, 1, 146);
+
+}
+
+#line {
+    display: flex;
+    gap: 5px;
+    width: 100%;
+    align-items: center;
+}
+.line {
+    height: 1px;
+    width: 100%;
+    border-radius: 100px;
+    background-color: gray;
+    margin: 10px 0;
+}
+.dot {
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    background-color: gray;
+}
